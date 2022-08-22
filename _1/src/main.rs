@@ -26,6 +26,24 @@ fn main() {
             total += 1;
         }
     }
-   
     println!("Total incresed number: {}", total);
+
+    let mut total = 0;
+    for (i, _) in inputs.iter().enumerate(){
+        if i == 0 {
+            continue;
+        }
+
+        if i+3+1 > inputs.len() -1 {
+            break;
+        }
+
+        let previous_value = &inputs[i..i+3].iter().sum::<i32>();
+        let current_value = &inputs[i+1..i+3+1].iter().sum::<i32>();
+
+        if current_value > previous_value{
+            total += 1;
+        }
+    }
+    println!("Total incresed measured number: {}", total);
 }
